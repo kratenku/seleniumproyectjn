@@ -16,17 +16,22 @@ class TipoTrans():
 
     def setSelect(self):
         self.driver.find_element(By.CSS_SELECTOR,self.selectbox_select_css).click()
+        self.driver.get_screenshot_as_file(
+            "C:\\Users\\jhon.salazar\\Documents\\pythonpractiques\\pythonProject2\\screenshots\\prueba3.png")
 
     def setLista(self,i):
         lista_desplegable_tipotrans = self.driver.find_elements(By.CSS_SELECTOR,self.lista_desplegable_tipotrans_css)
         #time.sleep(10)
+        self.driver.get_screenshot_as_file(
+            "C:\\Users\\jhon.salazar\\Documents\\pythonpractiques\\pythonProject2\\screenshots\\prueba4.png")
 
         for i in lista_desplegable_tipotrans:
             print(i.text)
             if i.text == 'Pago de Facturas':
                 i.click()
                 #time.sleep(10)
-
+                self.driver.get_screenshot_as_file(
+                    "C:\\Users\\jhon.salazar\\Documents\\pythonpractiques\\pythonProject2\\screenshots\\prueba5.png")
 
     def setTipotrans(self):
        try:
@@ -36,13 +41,19 @@ class TipoTrans():
        except NoSuchElementException:
            print("Selecciono tipo trans")
 
+
     def setINgresoCuenta(self,numerocuenta):
         nro=self.driver.find_elements(By.ID, self.numerocuentaID)
         nro[0].send_keys(numerocuenta)
+        self.driver.get_screenshot_as_file(
+            "C:\\Users\\jhon.salazar\\Documents\\pythonpractiques\\pythonProject2\\screenshots\\prueba6.png")
 
 
     def setcontinuarFormapago(self):
         self.driver.find_element(By.CSS_SELECTOR,self.enviartipotrans_css).click()
+        self.driver.get_screenshot_as_file(
+            "C:\\Users\\jhon.salazar\\Documents\\pythonpractiques\\pythonProject2\\screenshots\\prueba7.png")
+
 
 
 

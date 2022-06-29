@@ -23,16 +23,21 @@ class SelFormaPago():
 
     def setDespleForma(self):
           self.driver.find_element(By.CSS_SELECTOR,self.despliegaOpcionpago_Css).click()
-
+          self.driver.get_screenshot_as_file(
+              "C:\\Users\\jhon.salazar\\Documents\\pythonpractiques\\pythonProject2\\screenshots\\prueba8.png")
 
 
     def setDespleFormaPago(self):
         Selección_Formapago = self.driver.find_elements(By.CSS_SELECTOR,self.opcionPago_css)
+        self.driver.get_screenshot_as_file(
+            "C:\\Users\\jhon.salazar\\Documents\\pythonpractiques\\pythonProject2\\screenshots\\prueba9.png")
 
         for pf in Selección_Formapago:
             print(pf.text)
             if pf.text == 'Tarjeta de Crédito - Débito':
                pf.click()
+               self.driver.get_screenshot_as_file(
+                   "C:\\Users\\jhon.salazar\\Documents\\pythonpractiques\\pythonProject2\\screenshots\\prueba10.png")
 
 
 
@@ -46,3 +51,4 @@ class SelFormaPago():
 
     def setContinuarConfirmacion(self):
         self.driver.find_element(By.CSS_SELECTOR,self.enviaconfirmacion).click()
+        self.driver.get_screenshot_as_file("C:\\Users\\jhon.salazar\\Documents\\pythonpractiques\\pythonProject2\\screenshots\\prueba11.png")

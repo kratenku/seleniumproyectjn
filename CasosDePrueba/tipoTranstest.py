@@ -25,10 +25,12 @@ class PruebaUno(unittest.TestCase):
     numerocuenta=3115046028
     driver=webdriver.Chrome(ChromeDriverManager().install())
 
+
     @classmethod
     def setUp(cls):
         cls.driver.get(cls.urlAcceso)
         cls.driver.maximize_window()
+        #cls.driver.get_screenshot_as_file("C:\\Users\\jhon.salazar\\Documents\\pythonpractiques\\pythonProject2\\screenshots\\prueba.png")
 
     def test_TipotransIngresoNumero(self):
         tp=TipoTrans(self.driver)
