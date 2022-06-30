@@ -24,8 +24,9 @@ class PruebaUno(unittest.TestCase):
     #confirmas = "oportunidad"
     respuestaConfirma = "Esta en la vista de oportunidad confirmacion"
     numerocuenta=3115046028
-    nrotarjeta="4111111111111"
-    driver=webdriver.Chrome(ChromeDriverManager().install())
+    nrotarjeta=4111111111111111
+    #_an = "2031"
+    driver = webdriver.Chrome(ChromeDriverManager().install())
 
 
     @classmethod
@@ -61,11 +62,13 @@ class PruebaUno(unittest.TestCase):
         fp.setLlenarCaptcha()
         time.sleep(15)
         fp.setContinuarConfirmacion()
-        time.sleep(20)
 
         #metodo que llefa desde ConfirmaPago para llenar el fórmulario
         icl=InformacionCliente(self.driver)
-        icl.ingresoNumeroTarjeta(self.nrotarjeta)
+        icl.SetSelecciontarjeta()
+        icl.SetingresoNumeroTarjeta(self.nrotarjeta)
+        icl.Setdesplegaranio()
+        icl.Setlistafecha()
 
 
 
