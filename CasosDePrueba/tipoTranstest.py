@@ -7,6 +7,7 @@ import pytest
 import time
 from pageObjects.tipoTrans import TipoTrans
 from pageObjects.FormaPago import SelFormaPago
+from pageObjects.ConfirmaPago import InformacionCliente
 #import sys
 #sys.path.append("C:\Users\jhon.salazar\Documents\pythonpractiques\pythonProject2\CasosDePrueba")
 
@@ -23,6 +24,7 @@ class PruebaUno(unittest.TestCase):
     #confirmas = "oportunidad"
     respuestaConfirma = "Esta en la vista de oportunidad confirmacion"
     numerocuenta=3115046028
+    nrotarjeta="4111111111111"
     driver=webdriver.Chrome(ChromeDriverManager().install())
 
 
@@ -41,6 +43,8 @@ class PruebaUno(unittest.TestCase):
         tp.setINgresoCuenta(self.numerocuenta)
         #Continuar con la transacción y assercciones que permiten buscar valores en pantalla
         tp.setcontinuarFormapago()
+        #Llena la información del cliente en la vista de confirmación de pago
+
 
         if self.primervalor:
             self.assertEqual(self.primervalor, self.segundovalor, self.respuesta)
@@ -58,6 +62,10 @@ class PruebaUno(unittest.TestCase):
         time.sleep(15)
         fp.setContinuarConfirmacion()
         time.sleep(20)
+
+        #metodo que llefa desde ConfirmaPago para llenar el fórmulario
+        icl=InformacionCliente(self.driver)
+        icl.ingresoNumeroTarjeta(self.nrotarjeta)
 
 
 
