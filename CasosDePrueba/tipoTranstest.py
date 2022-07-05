@@ -26,6 +26,11 @@ class PruebaUno(unittest.TestCase):
     numerocuenta=3115046028
     nrotarjeta=4111111111111111
     #_an = "2031"
+    numerocvv=777
+    nombreTarj="APPROVED"
+    documento=1234190750
+    celularNum=3007392184
+    correo="kratenku@gmail.com"
     driver = webdriver.Chrome(ChromeDriverManager().install())
 
 
@@ -63,14 +68,31 @@ class PruebaUno(unittest.TestCase):
         time.sleep(15)
         fp.setContinuarConfirmacion()
 
-        #metodo que llefa desde ConfirmaPago para llenar el fórmulario
+    #def test_LlenarFormularioPago(self):
+
+        #clase que llefa desde ConfirmaPago para llenar el fórmulario
         icl=InformacionCliente(self.driver)
         icl.SetSelecciontarjeta()
         icl.SetingresoNumeroTarjeta(self.nrotarjeta)
         icl.Setdesplegaranio()
         icl.Setlistafecha()
-
-
+        icl.SetlistaMes()
+        icl.SetSelMes()
+        icl.SetSelCvv()
+        icl.SetIngresaCvv(self.numerocvv)
+        icl.SetSelCuota()
+        #icl.SetIngCuota()
+        icl.SetSelNombre()
+        icl.SetIngresaNombre(self.nombreTarj)
+        icl.SetTipoDoc()
+        icl.SetselDoc()
+        icl.SetInDoc()
+        icl.SetNumDocumento(self.documento)
+        icl.SetIngresarCelular()
+        icl.SetIngresarCelularNum(self.celularNum)
+        icl.SetSeleccionaCorreo()
+        icl.SetIngresaCorreo(self.correo)
+        icl.SetEnviaConfirmacion()
 
     @classmethod
     def tearDownClass(cls):
